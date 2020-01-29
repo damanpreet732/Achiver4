@@ -1,0 +1,59 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.* ;
+
+class GFG {
+    static int[] maxsumarr (int arr[] )
+    {
+        ArrayList <Integer> al = new ArrayList<>();
+        ArrayList <Integer> temp = new ArrayList<>();
+        
+        int maxsum = 0 ;
+        int sum = 0 ;
+        
+        int narr[] =new int[arr.length+1] ;
+        for(int i=0;i<arr.length;i++)
+        {
+            narr[i] = arr[i] ;
+        }
+        narr[arr.length] = -1 ;
+        
+        for(int i : narr)
+        {
+            temp.add(i);
+            sum += i ;
+            if(i<0)
+            {
+                sum -= i ;
+                if(sum > maxsum)
+                {
+                    maxsum = sum ;
+                    al.clear();
+                    al.addAll(temp);
+                }
+                if(maxsum==sum && temp.size()>al.size())
+                {
+                    al.clear();
+                    al.addAll(temp);
+                }
+                temp.clear();
+                sum =0 ;
+            }
+        }
+        int sarr [] = new int[al.size()-1] ;
+        for(int i=0;i<al.size()-1;i++)
+        {
+            sarr[i] = al.get(i);
+        }
+        return sarr ;
+    }
+	public static void main (String[] args) {
+	    int arr[] = {1, 2, 5, -7, 2, 3} ;
+	    int sarr[] = maxsumarr(arr);
+	    for(int i=0;i<sarr.length;i++)
+	    {
+	        System.out.print(sarr[i] + " ");
+	    }
+	}
+}
