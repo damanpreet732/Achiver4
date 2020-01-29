@@ -20,3 +20,5 @@ class GFG {
 	    else System.out.print(-1); 
 	}
 }
+//time complexcity = O(n)
+//space complexcity = O(1) ;
