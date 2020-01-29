@@ -57,3 +57,5 @@ class GFG {
 	    }
 	}
 }
+//time complexcity = O(n) ;
+//space complexcity = O(n) ;
